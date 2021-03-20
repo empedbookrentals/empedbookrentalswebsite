@@ -1,0 +1,20 @@
+.btn-saffron{
+    background-color: #fc8019;
+    color: #fff;
+ }
+
+ .outline-saffron{
+    border-color: #fc8019;
+ }
+
+ a {
+    color: #000000;
+ }
+
+ a:hover{
+    color: #fc8019;
+ }
+
+ button:hover{
+    color: #fc8019;
+ }

@@ -1,0 +1,306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Website</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/bc6ea75b90.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js" integrity="sha512-lib7WdJvAnfLLBi5AHdN+wUkcWwpu1fmYzyEHQijZq7WedcwBiwdVNbcML2rAtKvwtOIU7thMGB+O9Kpb9g2Cw==" crossorigin="anonymous"></script>
+
+
+		<script>
+			const successCallback = (position) => {
+				console.log(position);
+			};
+
+			const errorCallback = (error) => {
+				console.log(position);
+			};
+
+			navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+		</script>
+	</head>
+	<body>
+
+	<!--	<header style="background-color:blue">
+			<div id="header_" class="row">
+				<div class="col-sm-8 d-flex justify-content-center align-items-center font-weight-bold">
+					Welcome to Emped booksite
+				</div>
+				<div class="col-sm-4">
+					<div class="row no-gutters">
+						<div class="col-sm-5 navbar py-0">
+							<a href="#" class="nav-item ml-2"><i class="bi bi-facebook " style="font-size: 1.5rem;"></i></a>
+							<a href="#" class="nav-item ml-2"><i class="bi bi-twitter" style="font-size: 1.4rem;"></i></a>
+							<a href="#" class="nav-item ml-2"><i class="bi bi-linkedin" style="font-size: 1.4rem;"></i></a>
+							<a href="#" class="nav-item ml-2"><i class="bi bi-whatsapp" style="font-size: 1.4rem;"></i></a>
+							<a href="#" class="nav-item ml-2"><i class="bi bi-telegram" style="font-size: 1.4rem;"></i></a>
+						</div>
+						<div class="col-sm-3 border-left ml-2 border-right px-2 py-0 navbar">
+							<a href="#" class="nav-item text-decoration-none" style="font-size: 1.2rem;"><i class="bi">contact us</i></a>
+						</div>
+						<div class="col-sm-2 ml-2 px-2 border-right navbar py-0">
+							<a href="#" class="nav-item text-decoration-none" style="font-size: 1.2rem; ">FAQs</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header> -->
+
+		<!-- Navigation Section -->
+		<nav class="navbar-expand-lg sticky-top">
+			<div class="row nav shadow-lg pt-2 bg-white rounded">
+
+				<!--logo Section -->
+				<div class="col-lg-2  d-flex  justify-content-between align-items-center">
+
+					<!-- burger button(Hidden for large and xl screen) -->
+					<button class="navbar-toggler d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fas fa-hamburger" style="font-size: 2rem;"></i>
+					</button>
+
+					<!-- logo for large and xl screen with hyperlink-->
+					<a class="d-none d-lg-block d-xl-block d-sm-none d-md-none pl-5" href="#">
+						<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluids" width='100px' height='100px' style="max-width:50% max-height:50%">
+					</a>
+
+					<!-- logo for large and xl screen with hyperlink -->
+					<a class="d-lg-none d-xl-none" href="#">
+						<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluidS" width='50px' height='50px' style="max-width:50% max-height:50%">
+					</a>
+
+					<!--notification button -->
+					<button class="navbar-toggler d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="bi bi-bell" style="font-size: 2rem;"></i>
+					</button>
+				</div>
+
+				<!--search bar and menu section -->
+				<div class="col-lg-7">
+
+					<!--search bar -->
+					<div class="row pt-3 pb-1 px-5">
+						<div class="input-group d-flex justify-content-center">
+							<div class="input-group-prepend">
+								<button class="btn outline-saffron rounded-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALL</button>
+							</div>
+							<input type="text" class="outline-saffron form-control rounded-0" placeholder="search">
+							<div class="input-group-append">
+								<button id="search" type="button" class="btn btn-saffron ">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!--main menu -->
+					<div class="row px-5 ">
+						<div id ="main_menu" class="collapse navbar-collapse ">
+							<ul class="nav ">
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Education</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Kids</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Short stories</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Novels</a><li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Fiction</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Devotional</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Stationary</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- menu to account, cart and social media links-->
+				<div class="col-lg-3 d-none d-lg-block d-xl-block d-sm-none d-md-none">
+
+					<!--menu for login, notification and cart -->
+					<div class="row pt-3 pb-1 justify-content-around navbar">
+						<a id="login_link" href="#login_section" data-toggle="login_section"  class="nav-item text-decoration-none"><span><i class="bi bi-person-plus" style="font-size: 1.5rem;"></i>&nbsp;Login</span></a>
+						<a href="#" class="nav-item text-decoration-none"><span><i class="bi bi-bell" style="font-size: 1.5rem;"></i> Notification</span></a>
+						<a href="#" class="nav-item text-decoration-none"><span><i class="bi bi-cart4" style="font-size: 1.5rem;"></i> Cart</span></a>
+					</div>
+
+					<!--social media links-->
+					<div class="row justify-content-center">
+						<div class="navbar pt-3">
+							<a href="#" class="nav-item px-2"><i class="bi bi-facebook " style="font-size: 1.2rem;"></i></a>
+							<a href="#" class="nav-item px-2"><i class="bi bi-twitter" style="font-size: 1.2rem;"></i></a>
+							<a href="#" class="nav-item px-2"><i class="bi bi-linkedin" style="font-size: 1.2rem;"></i></a>
+							<a href="#" class="nav-item px-2"><i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i></a>
+							<a href="#" class="nav-item px-2"><i class="bi bi-telegram" style="font-size: 1.2rem;"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!--login section -->
+		<div class="modal fade" tabindex="-1" id="login_section">
+			<div class="modal-lg modal-dialog">
+				<div class="modal-content border-0">
+					<div class="row justify-content-end p-0">
+
+						<!--login advertisement section -->
+						<div class="col-lg-5 col-sm-1 col-md-1 col-1 d-none d-sm-none d-md-none d-lg-block m-0 no-gutter" style="background:url({% static 'images/book_cover.jpeg' %}); background-size:cover; ">
+							<h1 class="p-5">Login</h1>
+						</div>
+
+						<!-- login and sign up form section -->
+						<div class="col-lg-7 col-sm-11 col-md-11 col-11">
+
+							<!-- close button -->
+							<div class="row justify-content-end px-3">
+								<button type="button" class="close" data-dismiss="modal">
+									<i class="bi bi-x" style="font-size: 2.5rem;"></i>
+								</button>
+							</div>
+
+							<!-- logo -->
+							<div class="row justify-content-center">
+								<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluidS" width='100px' height='100px' style="max-width:50% max-height:50%">
+							</div>
+
+							<!-- login form -->
+							<div id="login_div">
+								<form id="login_form" class="flex-column justify-content-center p-2 mt-2">
+									<div class="container">
+
+										<!-- adding and verifying phone number -->
+										<div class=" row container-fluid justify-content-center mb-3">
+											<div class="form-group d-flex justify-content-center mb-3 outline-saffron">
+												<input type="tel" id="mobile_number" class=" outline-saffron  form-control  rounded-0" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" autocomplete="off" required>
+											</div>
+											<button id="phone_otp_btn" class="btn btn-md btn-saffron rounded-0 mb-3 justify-content-center" onclick="phone_no_validate">SEND OTP </button>
+										</div>
+
+										<!-- validation msg for phone number -->
+										<div class="container-fluid d-flex mb-3">
+											<div id="validation_msg" class=" text-align-center invalid-feedback ">invalid number</div>
+										</div>
+
+										<!-- adding OTP -->
+										<div class="container mb-3 pl-0">
+											<div class="input-group">
+												<span class="input-group-text outline-saffron border-right-0" style="border-radius: 0.25rem 0rem 0em 0.25em">OTP</span>
+												<input type="text" class="outline-saffron border-left-0 form-control" id="otp" placeholder="pin number">
+											</div>
+										</div>
+
+										<!-- validation msg for OTP -->
+										<div class="container d-flex justify-content-center mb-3 ">
+											<div id="validation_otp" class="invalid-feedback ">invalid OTP</div>
+										</div>
+
+										<!-- login button -->
+										<div class="container d-flex justify-content-center mb-4">
+											<button id="verify_btn" class="btn btn-lg btn-saffron px-5">Verify</button>
+										</div>
+
+										<!-- link for sign up -->
+										<div class="container d-flex justify-content-center">
+											<a href="#signup_form" id="signupform_link" data-toggle="signup_form">New to Emped Books? Create an account</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end of login form -->
+
+							<!-- Sign up form -->
+							<div id="signup_div" class="d-none">
+								<form id="signup_form" class="flex-column justify-content-center p-2 " >
+									<div class="container">
+
+										<!-- link to login form -->
+										<div class="container d-flex justify-content-center">
+											<a href="#login_form" id="loginform_link">I already have and account! Sign in</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end of sign up form -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--body of the website -->
+		{% block body %}
+
+		{% endblock %}
+
+		<!--footer section -->
+		<div class="footer">
+			<div class="  bg-light text-center text-lg-start text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
+				Emped Books Private Limited © 2021 Copyright:
+				<a class="text-dark text-decoration-none" href="#">Emped_Booksite.com</a>
+				<div class="d-lg-none d-xl-none">
+					<br><br><br>
+				</div>
+			</div>
+		</div>
+
+		<!--footer fixed navigation for medium and small screen -->
+		<nav class=" nav navbar fixed-bottom d-flex justify-content-between d-lg-none d-xl-none shadow-lg bg-white rounded">
+			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-house d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Home</span></a>
+			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-shop-window d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Category</span></a>
+			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-person d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Account</span></a>
+			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-handbag d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Bag</span></a>
+		</nav>
+
+		<script type="text/javascript">
+    		$(window).on('load', function() {
+        		$('#login_section').modal('show');
+    		});
+		</script>
+
+		<!-- script to map login link to login form -->
+		<script>
+
+			//login modal redirection
+
+			$(document).ready(function(){
+   	        	$("#login_link").click(function(){
+					$("#login_section").modal();
+				});
+
+				$("#signupform_link").click(function(){
+			 		$("#login_div").addClass("d-none");
+					$("#signup_div").removeClass("d-none");
+				});
+
+				$("#loginform_link").click(function(){
+			 		$("#signup_div").addClass("d-none");
+					$("#login_div").removeClass("d-none");
+				});
+			});
+		</script>
+
+
+		<!--script phone number -->
+		<script>
+			var input = document.querySelector("#mobile_number");
+			window.intlTelInput(input, {
+			  preferredCountries: ["in"],
+      		  separateDialCode: true,
+			  geoIpLookup: function(callback) {
+				$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+				  var countryCode = (resp && resp.country) ? resp.country : "us";
+				  callback(countryCode);
+				});
+			  },
+			  //utilsScript: "../../build/js/utils.js?1613236686837" // just for formatting/placeholders etc
+			});
+  		</script>
+
+	</body>
+</html>
