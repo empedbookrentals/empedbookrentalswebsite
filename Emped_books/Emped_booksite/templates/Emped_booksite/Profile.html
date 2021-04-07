@@ -1,6 +1,176 @@
 {% extends 'base.html' %}
 {% block body %}
 
-    <div  class="container">
+    <!--accordion for profile information -->
+   <!-- <div  id="profile.html" class="container-fluid px-0 " >
+        <div class="accordion px-3" id="accordion_profile">
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="header_personal_details">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_personal_details" aria-expanded="false" aria-controls="div_personal_details">
+                        <span class="px-3">Personal Details</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_personal_details" class="accordion-collapse collapse show" aria-labelledby="header_personal_details" data-bs-parent="accordion_profile">
+                    <div class="accordion-body">
+                        <h1>Name</h1>
+                         <h4>0987654321</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="header_current_reading">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_current_reading" aria-expanded="false" aria-controls="div_current_reading">
+                        <span class="px-3">Current Reading</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_current_reading" class="accordion-collapse collapse" aria-labelledby="header_current_reading" data-bs-parent="accordion_profile">
+                    <div classs="accordion-body">
+                        <h1>Current book reading list</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="header_return_book">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_return_book" aria-expanded="true" aria-controls="div_return_book">
+                        <span class="px-3">Return a book</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_return_book" class="accordion-toggle collapse" aria-labelledby="header_return_book" data-bs-parent="accordion-profile">
+                    <div class="accordion-body">
+                        <h1>Return a book list</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="header_history">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_history" aria-expanded="true" aria-controls="div_history">
+                        <span class="px-3">History & Wallet</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_history" class="accordion-toggle collapse" aria-labelledby="header_history" data-bs-parent="accordion-profile">
+                    <div class="accordion-body">
+                        <h1>history of the customer and wallet amount</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        accordion for invitation
+        <div id="accordion_invite" class="accordion py-3">
+            <div class="accordion-item px-3">
+                <h3 class="accordion-header" id="header_invite_friends">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_invite_friends" aria-expanded="true" aria-controls="div_invite_friends">
+                        <span class="px-3">Invite Friends</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_invite_friends" class="accordion-toggle collapse" aria-labelledby="header_invite_friends" data-bs-parent="accordion_invite">
+                    <div class="accordion-body">
+                        <h1>links</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item px-3">
+                <h3 class="accordion-header" id="header_join_club">
+                    <div class="row justify-content-between accordion-bg-color py-3" data-toggle="collapse" data-target="#div_join_club" aria-expanded="true" aria-controls="div_join_club">
+                        <span class="px-3">Join our club</span>
+                        <span class="px-3"><i class="bi bi-chevron-down"></i></span>
+                    </div>
+                </h3>
+                <div id="div_join_club" class="accordion-toggle collapse" aria-labelledby="header_join_club" data-bs-parent="accordion_invite">
+                   <div class="accordion-body">
+                        <h1>procedure to join our club</h1>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="div_main_profile" class="container-fluid bg-warning">
+        <div class="container-fluid row flex justify-content-between px-lg-5 pt-lg-5 pt-2">
+            <div class="pl-lg-5 text-light">
+                <h2>Tolston</h2>
+                <span class="text">9090909090</span>
+            </div>
+            <div class="pl-lg-5 pt-3">
+                <button type="button" class="btn btn-outline-light rounded-0">Edit profile</button>
+            </div>
+        </div>
+        <div class="row bg-white mx-lg-2 mx-md-2 mx-sm-2 px-lg-3">
+            <div class="col-lg-3 col-md-3 col-sm-1 col-12 pt-3 px-0 bg-yellow-very-light">
+                <div id="div_accordion_profile" class="accordion px-0">
+                    <div class="accordion-item ">
+                        <div class="accordion-header" id="header_current_reading">
+                            <a id="current_reading_link" href="#" class="row text-decoration-none m-0 py-3 px-0" data-toggle="collapse" data-target="#div_current_reading" aria-expanded="false" aria-controls="div_current_reading" onclick="btn_current_reading()">
+                                Current Reading
+                            </a>
+                            <div id="div_current_reading" class="accordion-toggle collapse" aria-labelledby="header_current_reading" data-bs-parent="accordion_profile">
+                                <div class="accordion-body">
+                                    Currently reading
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="header_return_book">
+                            <a id="return_book_link" href="#" class="row text-decoration-none m-0 py-3 px-0" data-toggle="collapse" data-target="#div_return_book" aria-expanded="false" aria-controls="div_return_book" onclick="btn_return_book()">
+                                Return Book
+                            </a>
+                            <div id="div_return_book" class="accordion-toggle collapse" aria-labelledby="header_return_book" data-bs-parent="accordion_profile">
+                                <div class="accordion-body">
+                                    Return a Book
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="header_history_wallet">
+                            <a href="#" id="history_wallet_link"class="row text-decoration-none m-0 py-3 px-0" data-toggle="collapse" data-target="#div_history_wallet" aria-expanded="false" aria-controls="div_history_wallet" onclick="btn_history_wallet()">
+                                History & Wallet
+                            </a>
+                            <div id="div_history_wallet" class="accordion-toggle collapse" aria-labelledby="header_history_wallet" data-bs-parent="accordion_profile">
+                                <div class="accordion-body">
+                                    History & Wallet
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="div_accordion_invite" class=" accordion px-0 mt-3">
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="header_invite_friends">
+                            <a href="#" id="invite_friends_link" class="row text-decoration-none m-0 py-3 px-0" data-toggle="collapse" data-target="#div_invite_friends" aria-expanded="false" aria-controls="div_invite_friends" onclick="btn_invite_friends()">
+                                Invite a friend
+                            </a>
+                            <div id="div_invite_friends" class="accordion-toggle collapse" aria-labelledby="header_invite_friends" data-bs-parent="div_accordion_invite">
+                                <div class="accordion-body">
+                                    invite friends
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="header_join_club">
+                            <a href="#" id="join_club_link" class="row text-decoration-none m-0 py-3 px-0" data-toggle="collapse" data-target="#div_join_club" aria-expanded="false" aria-controls="div_join_club" onclick="btn_join_club()">
+                                Join our club
+                            </a>
+                        </div>
+                        <div id="div_join_club" class="accordion-toggle collapse" aria-labelledby="header_join_club" data-bs-parent="div_accordion_invite">
+                            <div class="accordion-body">
+                                join or club
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-11">
+                <div id="div_profile_invite_display" ></div>
+            </div>
+        </div>
     </div>
+
+{% endblock %}

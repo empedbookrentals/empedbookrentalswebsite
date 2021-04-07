@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Website</title>
+		{% block title %}<title>Website</title>{% endblock %}
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
@@ -15,22 +15,9 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/bc6ea75b90.js" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js" integrity="sha512-lib7WdJvAnfLLBi5AHdN+wUkcWwpu1fmYzyEHQijZq7WedcwBiwdVNbcML2rAtKvwtOIU7thMGB+O9Kpb9g2Cw==" crossorigin="anonymous"></script>
-
-
-		<script>
-			const successCallback = (position) => {
-				console.log(position);
-			};
-
-			const errorCallback = (error) => {
-				console.log(position);
-			};
-
-			navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
-		</script>
+		<script src="{% static 'js/main_javascript.js' %}" type="text/javascript"></script>
 	</head>
-	<body>
-
+	<body style="width:100%; height:100%; margin:0;">
 	<!--	<header style="background-color:blue">
 			<div id="header_" class="row">
 				<div class="col-sm-8 d-flex justify-content-center align-items-center font-weight-bold">
@@ -55,26 +42,44 @@
 				</div>
 			</div>
 		</header> -->
+	<!--sidebar-->
+	<div id="menu_sidebar" class="h-100  sidebar">
+		<button type="button" class="close close_icon" onclick="closeNav()">
+			<i class="bi bi-x" style="font-size: 2.5rem;"></i>
+		</button>
+		<div id="sidebar_options" class="pt-5">
+			<a href="#" class="nav-link text-decoration-none text-lg ">Education</a>
+			<a href="#" class="nav-link text-decoration-none text-md">Kids</a>
+			<a href="#" class="nav-link text-decoration-none text-sm">Short stories</a>
+			<a href="#" class="nav-link text-decoration-none ">Novels</a>
+			<a href="#" class="nav-link text-decoration-none ">Fiction</a>
+			<a href="#" class="nav-link text-decoration-none ">Devotional</a>
+			<a href="#" class="nav-link text-decoration-none ">Stationary</a>
+		</div>
+	</div>
+
+	<!-- base page -->
+	<div id="base" class="w-100">
 
 		<!-- Navigation Section -->
-		<nav class="navbar-expand-lg sticky-top">
+		<nav class="navbar-expand sticky-top">
 			<div class="row nav shadow-lg pt-2 bg-white rounded">
 
 				<!--logo Section -->
 				<div class="col-lg-2  d-flex  justify-content-between align-items-center">
 
 					<!-- burger button(Hidden for large and xl screen) -->
-					<button class="navbar-toggler d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
-						<i class="fas fa-hamburger" style="font-size: 2rem;"></i>
+					<button class="navbar-toggler d-lg-none d-xl-none" type="button" onclick="open_sidebar()">
+						<i class="bi bi-book" style="font-size: 2rem;"></i>
 					</button>
 
 					<!-- logo for large and xl screen with hyperlink-->
-					<a class="d-none d-lg-block d-xl-block d-sm-none d-md-none pl-5" href="#">
+					<a class="d-none d-lg-block d-xl-block d-sm-none d-md-none pl-5" href="{% url 'index-page' %}">
 						<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluids" width='100px' height='100px' style="max-width:50% max-height:50%">
 					</a>
 
 					<!-- logo for large and xl screen with hyperlink -->
-					<a class="d-lg-none d-xl-none" href="#">
+					<a class="d-lg-none d-xl-none" href="{% url 'index-page' %}">
 						<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluidS" width='50px' height='50px' style="max-width:50% max-height:50%">
 					</a>
 
@@ -88,12 +93,12 @@
 				<div class="col-lg-7">
 
 					<!--search bar -->
-					<div class="row pt-3 pb-1 px-5">
+					<div class="row pt-4  px-5">
 						<div class="input-group d-flex justify-content-center">
 							<div class="input-group-prepend">
 								<button class="btn outline-saffron rounded-left dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ALL</button>
 							</div>
-							<input type="text" class="outline-saffron form-control rounded-0" placeholder="search">
+							<input type="text" class="outline-saffron form-control rounded-start" placeholder="search">
 							<div class="input-group-append">
 								<button id="search" type="button" class="btn btn-saffron ">
 									<i class="bi bi-search"></i>
@@ -102,12 +107,12 @@
 						</div>
 					</div>
 
-					<!--main menu -->
+					<!--main menu
 					<div class="row px-5 ">
-						<div id ="main_menu" class="collapse navbar-collapse ">
+						<div id ="main_menu" class="d-none d-lg-block d-xl-block justify-content-stretch">
 							<ul class="nav ">
-								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Education</a></li>
-								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Kids</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Home</a></li>
+								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">All Categories</a></li>
 								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Short stories</a></li>
 								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Novels</a><li>
 								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Fiction</a></li>
@@ -115,7 +120,7 @@
 								<li class="nav-item"><a href="#" class="nav-link text-decoration-none ">Stationary</a></li>
 							</ul>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 				<!-- menu to account, cart and social media links-->
@@ -124,6 +129,7 @@
 					<!--menu for login, notification and cart -->
 					<div class="row pt-3 pb-1 justify-content-around navbar">
 						<a id="login_link" href="#login_section" data-toggle="login_section"  class="nav-item text-decoration-none"><span><i class="bi bi-person-plus" style="font-size: 1.5rem;"></i>&nbsp;Login</span></a>
+						<a id="account_link" href="profile" class="nav-item text-decoration-none d-none"><span><i class="bi bi-person" style="font-size: 1.5rem;"></i>&nbsp;Account</span></a>
 						<a href="#" class="nav-item text-decoration-none"><span><i class="bi bi-bell" style="font-size: 1.5rem;"></i> Notification</span></a>
 						<a href="#" class="nav-item text-decoration-none"><span><i class="bi bi-cart4" style="font-size: 1.5rem;"></i> Cart</span></a>
 					</div>
@@ -145,7 +151,7 @@
 		<!--login section -->
 		<div class="modal fade" tabindex="-1" id="login_section">
 			<div class="modal-lg modal-dialog">
-				<div class="modal-content border-0">
+				<div class="modal-content border-0 rounded-0">
 					<div class="row justify-content-end p-0">
 
 						<!--login advertisement section -->
@@ -170,44 +176,38 @@
 
 							<!-- login form -->
 							<div id="login_div">
-								<form id="login_form" class="flex-column justify-content-center p-2 mt-2">
+								<form id="login_form" class="flex-column justify-content-center p-2 mt-4">
 									<div class="container">
 
 										<!-- adding and verifying phone number -->
-										<div class=" row container-fluid justify-content-center mb-3">
-											<div class="form-group d-flex justify-content-center mb-3 outline-saffron">
-												<input type="tel" id="mobile_number" class=" outline-saffron  form-control  rounded-0" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" autocomplete="off" required>
+										<div class=" row container-fluid justify-content-center mb-4">
+											<div class="form-group d-flex justify-content-center mb-2 outline-saffron">
+												<input type="tel" id="mobile_number" class=" outline-saffron  form-control  rounded-0" placeholder="XXXXXXXXXX"  autocomplete="off">
 											</div>
-											<button id="phone_otp_btn" class="btn btn-md btn-saffron rounded-0 mb-3 justify-content-center" onclick="phone_no_validate">SEND OTP </button>
-										</div>
-
-										<!-- validation msg for phone number -->
-										<div class="container-fluid d-flex mb-3">
-											<div id="validation_msg" class=" text-align-center invalid-feedback ">invalid number</div>
+											<button id="phone_otp_btn" class="btn btn-md btn-saffron rounded-0 mb-2 justify-content-center" onclick="send_otp()">SEND OTP </button>
+											<!-- validation msg for phone number -->
+											<div class="container-fluid d-flex justify-content-center">
+												<div id="validation_msg" class=" text-align-center error-msg d-none">Please enter a number in valid format</div>
+											</div>
 										</div>
 
 										<!-- adding OTP -->
-										<div class="container mb-3 pl-0">
+										<div class="container mb-4 pl-0">
 											<div class="input-group">
-												<span class="input-group-text outline-saffron border-right-0" style="border-radius: 0.25rem 0rem 0em 0.25em">OTP</span>
-												<input type="text" class="outline-saffron border-left-0 form-control" id="otp" placeholder="pin number">
+												<span class="input-group-text outline-saffron border-right-0 rounded-0 mb-2">OTP</span>
+												<input type="text" class="outline-saffron border-left-0 form-control rounded-0 mb-2" id="otp" placeholder="pin number">
+											</div>
+											<!-- validation msg for OTP -->
+											<div class="container d-flex justify-content-center ">
+												<div id="validation_otp" class="error-msg text-align-center d-none">Oops! OTP does not matches!!!</div>
 											</div>
 										</div>
 
-										<!-- validation msg for OTP -->
-										<div class="container d-flex justify-content-center mb-3 ">
-											<div id="validation_otp" class="invalid-feedback ">invalid OTP</div>
-										</div>
-
 										<!-- login button -->
-										<div class="container d-flex justify-content-center mb-4">
-											<button id="verify_btn" class="btn btn-lg btn-saffron px-5">Verify</button>
+										<div class="container d-flex justify-content-center mb-5">
+											<button id="verify_btn" type="button" class="btn btn-lg btn-saffron px-5" onclick="otp_verify()">Verify</button>
 										</div>
 
-										<!-- link for sign up -->
-										<div class="container d-flex justify-content-center">
-											<a href="#signup_form" id="signupform_link" data-toggle="signup_form">New to Emped Books? Create an account</a>
-										</div>
 									</div>
 								</form>
 							</div>
@@ -218,15 +218,55 @@
 								<form id="signup_form" class="flex-column justify-content-center p-2 " >
 									<div class="container">
 
-										<!-- link to login form -->
-										<div class="container d-flex justify-content-center">
-											<a href="#login_form" id="loginform_link">I already have and account! Sign in</a>
+										<!--First name-->
+										<div class="container mb-2">
+											<div class="input-group ">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0 ">First name</span>-->
+												<input type="text" id="input_fname" class="outline-black border-3 form-control rounded-0" placeholder="First name" >
+											</div>
 										</div>
+
+										<!--Last name-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Last Name</span>-->
+												<input type="text" id="input_lname" class="outline-black border-3 form-control rounded-0" placeholder="Last name">
+											</div>
+										</div>
+
+										<!--Door number-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Door no</span>-->
+												<input type="text" id="input_doorno" class="outline-black border-3 form-control rounded-0" placeholder="Door number">
+											</div>
+										</div>
+
+										<!--Address-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<input type="text" id="input_address" class="outline-black border-3 form-control rounded-0" placeholder="Address" >
+											</div>
+										</div>
+
+										<!--Landmark-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<input type="text" id="input_landmark" class="outline-black border-3 form-control rounded-0" placeholder="Nearest Landmark" >
+											</div>
+										</div>
+
+										<!-- Sign Up button -->
+										<div class="container d-flex justify-content-center mb-4">
+											<button id="signup_btn" class="btn btn-lg btn-saffron px-5" onclick="validate_signup()">Sign Up</button>
+										</div>
+
 									</div>
 								</form>
 							</div>
 							<!-- end of sign up form -->
-
 						</div>
 					</div>
 				</div>
@@ -239,7 +279,7 @@
 		{% endblock %}
 
 		<!--footer section -->
-		<div class="footer">
+		<div class="footer container-footer">
 			<div class="  bg-light text-center text-lg-start text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
 				Emped Books Private Limited © 2021 Copyright:
 				<a class="text-dark text-decoration-none" href="#">Emped_Booksite.com</a>
@@ -256,51 +296,6 @@
 			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-person d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Account</span></a>
 			<a href="#" class="nav-item px-2 text-decoration-none"><i class="bi bi-handbag d-flex justify-content-center" style="font-size: 2rem;"></i><span class="font-weight-bold">Bag</span></a>
 		</nav>
-
-		<script type="text/javascript">
-    		$(window).on('load', function() {
-        		$('#login_section').modal('show');
-    		});
-		</script>
-
-		<!-- script to map login link to login form -->
-		<script>
-
-			//login modal redirection
-
-			$(document).ready(function(){
-   	        	$("#login_link").click(function(){
-					$("#login_section").modal();
-				});
-
-				$("#signupform_link").click(function(){
-			 		$("#login_div").addClass("d-none");
-					$("#signup_div").removeClass("d-none");
-				});
-
-				$("#loginform_link").click(function(){
-			 		$("#signup_div").addClass("d-none");
-					$("#login_div").removeClass("d-none");
-				});
-			});
-		</script>
-
-
-		<!--script phone number -->
-		<script>
-			var input = document.querySelector("#mobile_number");
-			window.intlTelInput(input, {
-			  preferredCountries: ["in"],
-      		  separateDialCode: true,
-			  geoIpLookup: function(callback) {
-				$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
-				  var countryCode = (resp && resp.country) ? resp.country : "us";
-				  callback(countryCode);
-				});
-			  },
-			  //utilsScript: "../../build/js/utils.js?1613236686837" // just for formatting/placeholders etc
-			});
-  		</script>
-
+	</div>
 	</body>
 </html>

@@ -1,6 +1,134 @@
 {% extends 'base.html' %}
+{%load static %}
+
 {% block body %}
-    <div class="row bg-dark">
+	<!--login section -->
+		<div class="modal fade" tabindex="-1" id="login_section">
+			<div class="modal-lg modal-dialog">
+				<div class="modal-content border-0 rounded-0">
+					<div class="row justify-content-end p-0">
+
+						<!--login advertisement section -->
+						<div class="col-lg-5 col-sm-1 col-md-1 col-1 d-none d-sm-none d-md-none d-lg-block m-0 no-gutter" style="background:url({% static 'images/book_cover.jpeg' %}); background-size:cover; ">
+							<h1 class="p-5">Login</h1>
+						</div>
+
+						<!-- login and sign up form section -->
+						<div class="col-lg-7 col-sm-11 col-md-11 col-11">
+
+							<!-- close button -->
+							<div class="row justify-content-end px-3">
+								<button type="button" class="close" data-dismiss="modal">
+									<i class="bi bi-x" style="font-size: 2.5rem;"></i>
+								</button>
+							</div>
+
+							<!-- logo -->
+							<div class="row justify-content-center">
+								<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluidS" width='100px' height='100px' style="max-width:50% max-height:50%">
+							</div>
+
+							<!-- login form -->
+							<div id="login_div">
+								<form id="login_form" class="flex-column justify-content-center p-2 mt-4">
+									<div class="container">
+
+										<!-- adding and verifying phone number -->
+										<div class=" row container-fluid justify-content-center mb-4">
+											<div class="form-group d-flex justify-content-center mb-2 outline-saffron">
+												<input type="tel" id="mobile_number" class=" outline-saffron  form-control  rounded-0" placeholder="XXXXXXXXXX"  autocomplete="off">
+											</div>
+											<button id="phone_otp_btn" class="btn btn-md btn-saffron rounded-0 mb-2 justify-content-center" onclick="send_otp()">SEND OTP </button>
+											<!-- validation msg for phone number -->
+											<div class="container-fluid d-flex justify-content-center">
+												<div id="validation_msg" class=" text-align-center error-msg d-none">Please enter a number in valid format</div>
+											</div>
+										</div>
+
+										<!-- adding OTP -->
+										<div class="container mb-4 pl-0">
+											<div class="input-group">
+												<span class="input-group-text outline-saffron border-right-0 rounded-0 mb-2">OTP</span>
+												<input type="text" class="outline-saffron border-left-0 form-control rounded-0 mb-2" id="otp" placeholder="pin number">
+											</div>
+											<!-- validation msg for OTP -->
+											<div class="container d-flex justify-content-center ">
+												<div id="validation_otp" class="error-msg text-align-center d-none">Oops! OTP does not matches!!!</div>
+											</div>
+										</div>
+
+										<!-- login button -->
+										<div class="container d-flex justify-content-center mb-5">
+											<button id="verify_btn" type="button" class="btn btn-lg btn-saffron px-5" onclick="otp_verify()">Verify</button>
+										</div>
+
+									</div>
+								</form>
+							</div>
+							<!-- end of login form -->
+
+							<!-- Sign up form -->
+							<div id="signup_div" class="d-none">
+								<form id="signup_form" class="flex-column justify-content-center p-2 " >
+									<div class="container">
+
+										<!--First name-->
+										<div class="container mb-2">
+											<div class="input-group ">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0 ">First name</span>-->
+												<input type="text" id="input_fname" class="outline-black border-3 form-control rounded-0" placeholder="First name" >
+											</div>
+										</div>
+
+										<!--Last name-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Last Name</span>-->
+												<input type="text" id="input_lname" class="outline-black border-3 form-control rounded-0" placeholder="Last name">
+											</div>
+										</div>
+
+										<!--Door number-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Door no</span>-->
+												<input type="text" id="input_doorno" class="outline-black border-3 form-control rounded-0" placeholder="Door number">
+											</div>
+										</div>
+
+										<!--Address-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<input type="text" id="input_address" class="outline-black border-3 form-control rounded-0" placeholder="Address" >
+											</div>
+										</div>
+
+										<!--Landmark-->
+										<div class="container mb-2">
+											<div class="input-group">
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<input type="text" id="input_landmark" class="outline-black border-3 form-control rounded-0" placeholder="Nearest Landmark" >
+											</div>
+										</div>
+
+										<!-- Sign Up button -->
+										<div class="container d-flex justify-content-center mb-4">
+											<button id="signup_btn" class="btn btn-lg btn-saffron px-5" onclick="validate_signup()">Sign Up</button>
+										</div>
+
+									</div>
+								</form>
+							</div>
+							<!-- end of sign up form -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+    <div class="row">
 
 			<!-- what's new, discount, trending -->
 			<div id="carousel_slide" class="carousel slide container-fluid text-center" data-ride="carousel">
@@ -20,7 +148,7 @@
 						<h1>nothing's new</h1>
 					</div>
 				</div>
-				<a class="carousel-control-prev" href="#carousel_slide" role="button" data-slide="prev">
+				<a class="carousel-control-prev " href="#carousel_slide" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 				</a>
@@ -29,8 +157,7 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
-
-			<!-- all categories -->
+			<!-- all categories
 			<div id="categories" class="container">
 				<div class="row">
 					<div class="col">
@@ -63,7 +190,79 @@
 					<div class="col">
 						<div class="p-3 border bg-light">Row column</div>
 					</div>
+				</div> -->
+			<div class="container-fluid px-lg-3 px-xl-3 mt-4">
+				<div class="container-fluid py-3 px-0 px-lg-4" style="box-sizing:border-box;">
+					<div class="w-100 type-header"><h1>Age</h1></div>
+					<div class="card-deck" style="overflow:hidden">
+						{% for range in agerange %}
+							<a href="{{ range.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left">
+								<img src="{{ range.Image.url }} " class="book-title-image">
+								<div class="tile-title card-title text-center pt-2"><h5>{{ range.AgeRange }}</h5></div>
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="container-fluid py-3 px-0 px-lg-4" style="box-sizing:border-box;">
+					<div class="w-100 type-header"><h1>Genre</h1></div>
+					<div class="card-deck" style="overflow:hidden">
+						{% for category in genres %}
+							<a href="{{ category.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left">
+								<img src="{{ category.Image.url }} " class="book-title-image">
+								<div class="tile-title card-title text-center pt-2"><h5>{{ category.Name }}</h5></div>
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="container-fluid py-3 px-0 px-lg-4" style="box-sizing:border-box;">
+					<div class="w-100 type-header"><h1>Authors</h1></div>
+					<div id="div_author" class="d-flex justify-content-start book-grid">
+						<button class="book-grid-navigator book-grid-navigator-left my-2" type="button" onclick="btn_grid_scroll_left('div_author')">
+							<span>
+								<i class="bi bi-chevron-left" style="font-size: 3rem;"></i>
+							</span>
+						</button>
+						<button class="book-grid-navigator book-grid-navigator-right my-2" type="button" onclick="btn_grid_scroll_right('div_author')">
+							<span>
+								<i class="bi bi-chevron-right" style="font-size: 3rem;"></i>
+							</span>
+						</button>
+						{% for author in authors %}
+							<a href="{{ author.get_absolute_url }}" class="card mx-3 my-2 pt-3 " style="flex:0 0 150px; height:250px; ">
+								<img src="{{author.Image.url}}" class="book-card-image">
+								<div class="card-title text-center">{{ author.Name }}</div>
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="container-fluid py-4" style="box-sizing:border-box;">
+					{% for type in genres %}
+						<div class="container-fluid py-4 " style="box-sizing:border-box;">
+							<div class="w-100 type-header"><h1>{{ type.Name}}</h1></div>
+							<div id="div_{{type.Name}}" class="d-flex justify-content-start book-grid" >
+								<button id="btn_left_{{type.Name}}" class="book-grid-navigator book-grid-navigator-left my-2" type="button" onclick="btn_grid_scroll_left('div_{{type.Name}}')">
+									<span>
+										<i class="bi bi-chevron-left" style="font-size: 3rem;"></i>
+									</span>
+								</button>
+								<button class="book-grid-navigator book-grid-navigator-right my-2" type="button" onclick="btn_grid_scroll_right('div_{{type.Name}}')">
+									<span>
+										<i class="bi bi-chevron-right" style="font-size: 3rem;"></i>
+									</span>
+								</button>
+								{% for book in books %}
+									<a href="{{ book.get_absolute_url }}" class="card mx-3 my-2 pt-3 " style="flex:0 0 150px; height:250px; ">
+										<img src="{{book.Image.url}}" class="book-card-image">
+										<div class="card-title text-center">{{ book.Name }}</div>
+									</a>
+								{% endfor %}
+							</div>
+						</div>
+					{% endfor %}
 				</div>
 			</div>
-		</div>
+	</div>
 {% endblock %}
