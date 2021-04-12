@@ -69,7 +69,7 @@
 				<div class="col-lg-2  d-flex  justify-content-between align-items-center">
 
 					<!-- burger button(Hidden for large and xl screen) -->
-					<button class="navbar-toggler d-lg-none d-xl-none" type="button" onclick="open_sidebar()">
+					<button class="navbar-toggler d-block d-lg-none d-xl-none" type="button" onclick="open_sidebar()">
 						<i class="bi bi-book" style="font-size: 2rem;"></i>
 					</button>
 
@@ -84,7 +84,7 @@
 					</a>
 
 					<!--notification button -->
-					<button class="navbar-toggler d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler d-block d-lg-none d-xl-none" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expanded="false" aria-label="Toggle navigation">
 						<i class="bi bi-bell" style="font-size: 2rem;"></i>
 					</button>
 				</div>
@@ -279,7 +279,92 @@
 		{% endblock %}
 
 		<!--footer section -->
-		<div class="footer container-footer">
+		<div class="footer big-footer">
+			<div class="row py-4  no-gutter mx-5" style="background-color:none; border-bottom:1px groove;">
+				<div class="col-3">
+					<ul>
+						<li class="footer-header"><h3><a href="#">Emped Reading Club</a></h3></li>
+						<li class="footer-list"><a href="#">A Place To Discuss Everything About Books!!!<br>Rent A Book Of Your Choice And Get It Delivered At Your Doorstep Within Hours.</a></li>
+					</ul>
+				</div>
+				<div class="col ">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Our Stores</a></h5></li>
+						<li class="footer-list"><a href="#">Mysore</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Navigation</a></h5></li>
+						<li class="footer-list"><a href="#">Home</a></li>
+						<li class="footer-list"><a href="#">Books</a></li>
+						<li class="footer-list"><a href="#">My Account</a></li>
+						<li class="footer-list"><a href="#">About</a></li>
+						<li class="footer-list"><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Help</a></h5></li>
+						<li class="footer-list"><a href="#">FAQs</a></li>
+						<li class="footer-list"><a href="#">24*7 Support</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Documents</a></h5></li>
+						<li class="footer-list"><a href="#">Privacy Policy</a></li>
+						<li class="footer-list"><a href="#">Terms & Conditions</a></li>
+					</ul>
+				</div>
+				<!--<div class="col">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Social Media</a></h5></li>
+						<li class="footer-list"><a href="#"><span><i class="bi bi-facebook"></i>&nbsp; Facebook</span></a></li>
+						<li class="footer-list"><a href="#"><span><i class="bi bi-twitter"></i>&nbsp; Twitter</span></a></li>
+						<li class="footer-list"><a href="#"><span><i class="bi bi-linkedin"></i>&nbsp; Linkedin</span></a></li>
+						<li class="footer-list"><a href="#"><span><i class="bi bi-whatsapp"></i>&nbsp; Whatsapp</span></a></li>
+						<li class="footer-list"><a href="#"><span><i class="bi bi-telegram"></i>&nbsp; Telegram</span></a></li>
+					</ul>
+				</div> -->
+				<div class="col">
+					<ul>
+						<li class="footer-header"><h5><a href="#">Contact Us</a></h5></li>
+						<li class="footer-list"><a href="#">Phone no: +91 9019468793</a></li>
+						<li class="footer-list"><a href="#">Email: ourempedbooks@gmail.com</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--<div class="row justify-content-center py-4  no-gutter mx-5">
+				<div class="col text-center">
+					<ul>
+						<li class="footer-header"><h3><a href="#">Email</a></h3></li>
+						<li class="footer-list"><a href="#">ourempedbooks@gmail.com</a></li>
+					</ul>
+				</div>
+				<div class="col text-center">
+					<ul>
+						<li class="footer-header"><h3><a href="#">Call us</a></h3></li>
+						<li class="footer-list"><a href="#">Phone no: +91 9019468793</a></li>
+					</ul>
+				</div>
+				<div class="col text-center">
+					<ul>
+						<li class="footer-header"><h3><a href="#">Address</a></h3></li>
+						<li class="footer-list"><a href="#">#147, college road, Ramaswamy Circle, Chamaraja Mohalla, Mysuru-570024, Karnataka</a></li>
+					</ul>
+				</div>
+			</div>-->
+			<div class="row justify-content-center py-4  mx-5">
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-facebook footer-facebook-icon" style="font-size: 3rem; "></i></a>
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-twitter footer-twitter-icon" style="font-size: 3rem; "></i></a>
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-instagram footer-instagram-icon" style="font-size: 3rem; "></i></a>
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-linkedin footer-linkedin-icon" style="font-size: 3rem;  "></i></a>
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-whatsapp footer-whatsapp-icon" style="font-size: 3rem;  "></i></a>
+				<a href="#" class="px-4 footer-icon"><i class="bi bi-telegram footer-telegram-icon" style="font-size: 3rem;  "></i></a>
+			</div>
+		</div>
+		<div class="footer container-footer bg-light">
 			<div class="  bg-light text-center text-lg-start text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
 				Emped Books Private Limited © 2021 Copyright:
 				<a class="text-dark text-decoration-none" href="#">Emped_Booksite.com</a>

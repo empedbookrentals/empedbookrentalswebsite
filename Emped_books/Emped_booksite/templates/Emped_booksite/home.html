@@ -196,9 +196,9 @@
 					<div class="w-100 type-header"><h1>Age</h1></div>
 					<div class="card-deck" style="overflow:hidden">
 						{% for range in agerange %}
-							<a href="{{ range.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left">
+							<a href="{{ range.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left text-decoration-none">
 								<img src="{{ range.Image.url }} " class="book-title-image">
-								<div class="tile-title card-title text-center pt-2"><h5>{{ range.AgeRange }}</h5></div>
+								<div class="tile-title card-title text-center pt-2 "><h5>{{ range.AgeRange }}</h5></div>
 							</a>
 						{% endfor %}
 					</div>
@@ -208,9 +208,9 @@
 					<div class="w-100 type-header"><h1>Genre</h1></div>
 					<div class="card-deck" style="overflow:hidden">
 						{% for category in genres %}
-							<a href="{{ category.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left">
+							<a href="{{ category.get_absolute_url }}" class="custom-card shadow-md card mx-lg-3 mx-1 my-4 mt-3 float-left text-decoration-none">
 								<img src="{{ category.Image.url }} " class="book-title-image">
-								<div class="tile-title card-title text-center pt-2"><h5>{{ category.Name }}</h5></div>
+								<div class="tile-title card-title text-center pt-2 "><h5>{{ category.Name }}</h5></div>
 							</a>
 						{% endfor %}
 					</div>
@@ -230,9 +230,9 @@
 							</span>
 						</button>
 						{% for author in authors %}
-							<a href="{{ author.get_absolute_url }}" class="card mx-3 my-2 pt-3 " style="flex:0 0 150px; height:250px; ">
+							<a href="{{ author.get_absolute_url }}" class="card mx-3 my-2 pt-3 text-decoration-none" style="flex:0 0 150px; height:250px; ">
 								<img src="{{author.Image.url}}" class="book-card-image">
-								<div class="card-title text-center">{{ author.Name }}</div>
+								<div class="card-title text-center ">{{ author.Name }}</div>
 							</a>
 						{% endfor %}
 					</div>
@@ -254,9 +254,9 @@
 									</span>
 								</button>
 								{% for book in books %}
-									<a href="{{ book.get_absolute_url }}" class="card mx-3 my-2 pt-3 " style="flex:0 0 150px; height:250px; ">
+									<a href="{{ book.get_absolute_url }}" class="card mx-3 my-2 pt-3 text-decoration-none" style="flex:0 0 150px; height:250px; ">
 										<img src="{{book.Image.url}}" class="book-card-image">
-										<div class="card-title text-center">{{ book.Name }}</div>
+										<div class="card-title text-center ">{{ book.Name }}</div>
 									</a>
 								{% endfor %}
 							</div>
