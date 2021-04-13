@@ -73,8 +73,8 @@ admin.site.register(Book, BookAdmin)
 
 # Customer Admin
 class CustomerAdmin(admin.ModelAdmin):
-    fields = ('PhoneNo', ('FirstName', 'LastName'), 'DoorNo', 'Address', 'LandMark', 'IsDeleted')
-    list_display = ('Edit', 'PhoneNo', 'FirstName', 'LastName', 'DoorNo', 'Address', 'LandMark')
+    fields = ('PhoneNo', 'Password', ('FirstName', 'LastName'), 'DoorNo', 'Address', 'LandMark', 'IsDeleted')
+    list_display = ('Edit', 'PhoneNo', 'Password', 'FirstName', 'LastName', 'DoorNo', 'Address', 'LandMark')
     list_display_links = None
 
     def Edit(self, obj):

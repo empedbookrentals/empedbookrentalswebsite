@@ -3,61 +3,61 @@
 
 {% block body %}
 	<!--login section -->
-		<div class="modal fade" tabindex="-1" id="login_section">
+		<!--<div class="modal fade" tabindex="-1" id="login_section">
 			<div class="modal-lg modal-dialog">
 				<div class="modal-content border-0 rounded-0">
 					<div class="row justify-content-end p-0">
 
-						<!--login advertisement section -->
+						<!--login advertisement section --><!--
 						<div class="col-lg-5 col-sm-1 col-md-1 col-1 d-none d-sm-none d-md-none d-lg-block m-0 no-gutter" style="background:url({% static 'images/book_cover.jpeg' %}); background-size:cover; ">
 							<h1 class="p-5">Login</h1>
 						</div>
 
-						<!-- login and sign up form section -->
+						<!-- login and sign up form section --><!--
 						<div class="col-lg-7 col-sm-11 col-md-11 col-11">
 
-							<!-- close button -->
+							<!-- close button --><!--
 							<div class="row justify-content-end px-3">
 								<button type="button" class="close" data-dismiss="modal">
 									<i class="bi bi-x" style="font-size: 2.5rem;"></i>
 								</button>
 							</div>
 
-							<!-- logo -->
+							<!-- logo --><!--
 							<div class="row justify-content-center">
 								<img src="{% static 'images/Emped-Books-Logo.png' %}" class="img-fluidS" width='100px' height='100px' style="max-width:50% max-height:50%">
 							</div>
 
-							<!-- login form -->
+							<!-- login form --><!--
 							<div id="login_div">
 								<form id="login_form" class="flex-column justify-content-center p-2 mt-4">
 									<div class="container">
 
-										<!-- adding and verifying phone number -->
+										<!-- adding and verifying phone number --><!--
 										<div class=" row container-fluid justify-content-center mb-4">
 											<div class="form-group d-flex justify-content-center mb-2 outline-saffron">
 												<input type="tel" id="mobile_number" class=" outline-saffron  form-control  rounded-0" placeholder="XXXXXXXXXX"  autocomplete="off">
 											</div>
 											<button id="phone_otp_btn" class="btn btn-md btn-saffron rounded-0 mb-2 justify-content-center" onclick="send_otp()">SEND OTP </button>
-											<!-- validation msg for phone number -->
+											<!-- validation msg for phone number --><!--
 											<div class="container-fluid d-flex justify-content-center">
 												<div id="validation_msg" class=" text-align-center error-msg d-none">Please enter a number in valid format</div>
 											</div>
 										</div>
 
-										<!-- adding OTP -->
+										<!-- adding OTP --><!--
 										<div class="container mb-4 pl-0">
 											<div class="input-group">
 												<span class="input-group-text outline-saffron border-right-0 rounded-0 mb-2">OTP</span>
 												<input type="text" class="outline-saffron border-left-0 form-control rounded-0 mb-2" id="otp" placeholder="pin number">
 											</div>
-											<!-- validation msg for OTP -->
+											<!-- validation msg for OTP --><!--
 											<div class="container d-flex justify-content-center ">
 												<div id="validation_otp" class="error-msg text-align-center d-none">Oops! OTP does not matches!!!</div>
 											</div>
 										</div>
 
-										<!-- login button -->
+										<!-- login button --><!--
 										<div class="container d-flex justify-content-center mb-5">
 											<button id="verify_btn" type="button" class="btn btn-lg btn-saffron px-5" onclick="otp_verify()">Verify</button>
 										</div>
@@ -67,65 +67,68 @@
 							</div>
 							<!-- end of login form -->
 
-							<!-- Sign up form -->
+							<!-- Sign up form --><!--
 							<div id="signup_div" class="d-none">
 								<form id="signup_form" class="flex-column justify-content-center p-2 " >
 									<div class="container">
 
-										<!--First name-->
+										<!--First name--><!--
 										<div class="container mb-2">
 											<div class="input-group ">
-												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0 ">First name</span>-->
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0 ">First name</span>--><!--
 												<input type="text" id="input_fname" class="outline-black border-3 form-control rounded-0" placeholder="First name" >
 											</div>
 										</div>
 
-										<!--Last name-->
+										<!--Last name--><!--
 										<div class="container mb-2">
 											<div class="input-group">
-												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Last Name</span>-->
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Last Name</span>--><!--
 												<input type="text" id="input_lname" class="outline-black border-3 form-control rounded-0" placeholder="Last name">
 											</div>
 										</div>
 
-										<!--Door number-->
+										<!--Door number--><!--
 										<div class="container mb-2">
 											<div class="input-group">
-												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Door no</span>-->
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Door no</span>--><!--
 												<input type="text" id="input_doorno" class="outline-black border-3 form-control rounded-0" placeholder="Door number">
 											</div>
 										</div>
 
-										<!--Address-->
+										<!--Address--><!--
 										<div class="container mb-2">
 											<div class="input-group">
-												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>--><!--
 												<input type="text" id="input_address" class="outline-black border-3 form-control rounded-0" placeholder="Address" >
 											</div>
 										</div>
 
-										<!--Landmark-->
+										<!--Landmark--><!--
 										<div class="container mb-2">
 											<div class="input-group">
-												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>-->
+												<!--<span class="input-group-text outline-saffron border-right-0 rounded-0">Address</span>--><!--
 												<input type="text" id="input_landmark" class="outline-black border-3 form-control rounded-0" placeholder="Nearest Landmark" >
 											</div>
 										</div>
 
-										<!-- Sign Up button -->
+										<!-- Sign Up button --><!--
 										<div class="container d-flex justify-content-center mb-4">
 											<button id="signup_btn" class="btn btn-lg btn-saffron px-5" onclick="validate_signup()">Sign Up</button>
 										</div>
 
 									</div>
+
+									<a href="#" onClick="login_Form()">Already a User</a>
+
 								</form>
 							</div>
-							<!-- end of sign up form -->
+							<!-- end of sign up form --><!--
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 
     <div class="row">

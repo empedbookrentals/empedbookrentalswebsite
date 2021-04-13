@@ -9,4 +9,5 @@ urlpatterns = [
     path(r'Genres-details/<int:pk>/', views.genres_details_view, name='Genres-detail'),
     path(r'Range-details/<int:pk>/', views.range_details_view, name='Range-detail'),
     path(r'Author-details/<int:pk>/', views.author_details_view, name='Author-detail'),
+    path(r'authenticate/', views.customer_authenticate, name='login'),
 ]

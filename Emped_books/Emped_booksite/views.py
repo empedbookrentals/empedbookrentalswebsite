@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from .models import *
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.http import HttpResponse
 # Create your views here.
 
 
 def main_func(request):
 	""" Getting all available books"""
-
 	books = Book.objects.filter(Status__exact='Avl')
 	genres = Category.objects.all()
 	agerange = Range.objects.all()
@@ -61,3 +60,21 @@ def author_details_view(request, pk):
 	except Author.DoesNotExist:
 		raise Http404('Oops Sorry! Book does not exist!!!')
 	return render(request, 'Emped_booksite/author_details.html', {'books': books, 'authors': authors})
+
+
+def customer_authenticate(request):
+	return JsonResponse("hello")
+	# if request.Method == "POST":
+	# 	phone = request.POST.get('phone')
+	# 	print(phone)
+	# # 	password = request.POST.get('password', None)
+	# 	if Customer.objects.filter(PhoneNo=phone, Password=password):
+	# 		data = {
+	# 			'name': Customer.objects.only('FirstName').get(PhoneNo='phone').FirstName
+	# 		}
+	# 		return JsonResponse("hello")
+	# 	else:
+	# 		data = {
+	# 			'msg': 'login_failed',
+	# 		}
+	# return JsonResponse("hi")

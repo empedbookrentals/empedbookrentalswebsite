@@ -41,7 +41,7 @@ class Range(models.Model):
 # Author model
 class Author(models.Model):
     Name = models.CharField(max_length=100)
-    Image = models.ImageField(upload_to="Author_images")
+    Image = models.ImageField(upload_to="Author_images", null=True)
     IsDeleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -88,6 +88,7 @@ class Book(models.Model):
 
 class Customer(models.Model):
     PhoneNo = models.CharField(max_length=13, unique=True)
+    Password = models.CharField(max_length=20, blank=True)
     FirstName = models.CharField(max_length=100)
     LastName = models.CharField(max_length=100)
     DoorNo = models.CharField(max_length=20)

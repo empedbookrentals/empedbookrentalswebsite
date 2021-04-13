@@ -5,9 +5,9 @@
 $(window).on('load', function() {
 
     //open login modal on page load
-        if(window.location.pathname === 'Emped_booksite/'){
-            $('#login_section').modal('show');
-        }
+     //   if(window.location.pathname === '/Emped_booksite/'){
+      //      $('#login_section').modal('show');
+      //  }
 
     //ask permission to store location
 
@@ -62,6 +62,29 @@ $(document).ready(function(){
         });
 });
 
+window.onload = function authenticate(){
+    var name = document.getElementById("account_name").value;
+    if(name == ""){
+        document.getElementById("account_name").innerHTML = " Login";
+        $('#login_section').modal('show');
+    }
+    else{
+
+    }
+}
+
+// open sign up form
+function signup_form(){
+    document.getElementById("signup_div").classList.remove("d-none");
+    document.getElementById("login_div").classList.add("d-none");
+}
+
+// open login form
+function login_form(){
+    document.getElementById("login_div").classList.remove("d-none");
+    document.getElementById("signup_div").classList.add("d-none");
+}
+
 // validating phone number and requesting to send otp
 function send_otp(){
     var number = document.getElementById("mobile_number");
@@ -113,6 +136,22 @@ function validate_signup(){
 
 //otp verification
 function otp_verify(){
+    var number = document.getElementById("mobile_number");
+    var validation_msg=document.getElementById("validation_msg");
+    var pass = document.getElementById("password");
+    var regex = /^\d{10}$/;
+    if(!number.value.match(regex)){
+        validation_msg.classList.remove("d-none");
+        number.classList.add("textbox-error");
+    }
+    else{
+        validation_msg.classList.add("d-none");
+        number.classList.remove("textbox-error");
+        url='authenticate/';
+        data={'phone':number.value,'password':pass.value};
+        var $j=jQuery.noConflict();
+        jQuery.post(url,data,{'CSRFToken' : getCSRFTokenValue()});
+    }
     document.getElementById("login_link").classList.add("d-none");
     document.getElementById("account_link").classList.remove("d-none");
 }
