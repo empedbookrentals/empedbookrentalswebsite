@@ -42,7 +42,7 @@ def range_details_view(request, pk):
 	try:
 		range = Range.objects.filter(pk=pk)
 		try:
-			books = Book.objects.filter(Genre=pk)
+			books = Book.objects.filter(Age=pk)
 		except Book.DoesNotExist:
 			raise Http404('Oops Sorry! Books does not exist for this Range!!!')
 	except Range.DoesNotExist:
@@ -54,7 +54,7 @@ def author_details_view(request, pk):
 	try:
 		authors = Author.objects.filter(pk=pk)
 		try:
-			books = Book.objects.filter(Genre=pk)
+			books = Book.objects.filter(Author=pk)
 		except Book.DoesNotExist:
 			raise Http404('Oops Sorry! Books does not exist for this Range!!!')
 	except Author.DoesNotExist:
