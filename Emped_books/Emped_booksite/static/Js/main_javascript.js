@@ -147,10 +147,20 @@ function otp_verify(){
     else{
         validation_msg.classList.add("d-none");
         number.classList.remove("textbox-error");
-        url='authenticate/';
-        data={'phone':number.value,'password':pass.value};
-        var $j=jQuery.noConflict();
-        jQuery.post(url,data,{'CSRFToken' : getCSRFTokenValue()});
+        $.ajax({
+            url: "{% url 'login' %}",
+            headers: {'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').content },
+            data: {'phone':number.value,'password':pass.value},
+            type: "POST",
+            dataType:'html',
+            success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        // Add the http response to element
+                        alert(data);
+                    }
+                }
+        });
     }
     document.getElementById("login_link").classList.add("d-none");
     document.getElementById("account_link").classList.remove("d-none");

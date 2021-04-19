@@ -63,7 +63,7 @@ def author_details_view(request, pk):
 
 
 def customer_authenticate(request):
-	return JsonResponse("hello")
+	return HttpResponse("hello")
 	# if request.Method == "POST":
 	# 	phone = request.POST.get('phone')
 	# 	print(phone)
