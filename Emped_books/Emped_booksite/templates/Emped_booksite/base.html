@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
 		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/bc6ea75b90.js" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js" integrity="sha512-lib7WdJvAnfLLBi5AHdN+wUkcWwpu1fmYzyEHQijZq7WedcwBiwdVNbcML2rAtKvwtOIU7thMGB+O9Kpb9g2Cw==" crossorigin="anonymous"></script>
@@ -144,7 +144,7 @@
 		</nav>
 
 		<!--login section -->
-		<div class="modal fade" tabindex="-1" id="login_section">
+		<div class="modal fade" tabindex="-1" id="login_section" data-keyboard="false" data-backdrop="static">
 			<div class="modal-lg modal-dialog">
 				<div class="modal-content border-0 rounded-0">
 					<div class="row justify-content-end p-0">
@@ -172,6 +172,10 @@
 							<!-- login form -->
 							<div id="login_div">
 								<form id="login_form" class="flex-column justify-content-center p-2 mt-4">
+
+									<!-- adding csrf token -->
+									{% csrf_token %}
+
 									<div class="container">
 
 										<!-- adding and verifying phone number -->
@@ -187,17 +191,17 @@
 											</div>
 										</div>
 
-										<!-- adding OTP --><!--
-										<div class="container mb-4 pl-0">
-											<div class="input-group">
-												<span class="input-group-text outline-saffron border-right-0 rounded-0 mb-2">OTP</span>
-												<input type="text" class="outline-saffron border-left-0 form-control rounded-0 mb-2" id="otp" placeholder="pin number">
-											</div>-->
-											<!-- validation msg for OTP --><!--
-											<div class="container d-flex justify-content-center ">
-												<div id="validation_otp" class="error-msg text-align-center d-none">Oops! OTP does not matches!!!</div>
-											</div>
-										</div>-->
+<!--										&lt;!&ndash; adding OTP &ndash;&gt;-->
+<!--										<div class="container mb-4 pl-0">-->
+<!--											<div class="input-group">-->
+<!--												<span class="input-group-text outline-saffron border-right-0 rounded-0 mb-2">OTP</span>-->
+<!--												<input type="text" class="outline-saffron border-left-0 form-control rounded-0 mb-2" id="otp" placeholder="pin number">-->
+<!--											</div>-->
+<!--											&lt;!&ndash; validation msg for OTP &ndash;&gt;-->
+<!--											<div class="container d-flex justify-content-center ">-->
+<!--												<div id="validation_otp" class="error-msg text-align-center d-none">Oops! OTP does not matches!!!</div>-->
+<!--											</div>-->
+<!--										</div>-->
 
 										<!-- Password -->
 										<div class="container mb-4 pl-0">

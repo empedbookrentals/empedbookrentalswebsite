@@ -5,9 +5,9 @@
 $(window).on('load', function() {
 
     //open login modal on page load
-     //   if(window.location.pathname === '/Emped_booksite/'){
-      //      $('#login_section').modal('show');
-      //  }
+        if(window.location.pathname === '/'){
+            $('#login_section').modal('show');
+        }
 
     //ask permission to store location
 
@@ -62,16 +62,16 @@ $(document).ready(function(){
         });
 });
 
-window.onload = function authenticate(){
-    var name = document.getElementById("account_name").value;
-    if(name == ""){
-        document.getElementById("account_name").innerHTML = " Login";
-        $('#login_section').modal('show');
-    }
-    else{
-
-    }
-}
+//window.onload = function authenticate(){
+//    var name = document.getElementById("account_name").value;
+//    if(name == ""){
+//        document.getElementById("account_name").innerHTML = " Login";
+//        $('#login_section').modal('show');
+//    }
+//    else{
+//
+//    }
+//}
 
 // open sign up form
 function signup_form(){
@@ -147,10 +147,21 @@ function otp_verify(){
     else{
         validation_msg.classList.add("d-none");
         number.classList.remove("textbox-error");
-        url='authenticate/';
-        data={'phone':number.value,'password':pass.value};
-        var $j=jQuery.noConflict();
-        jQuery.post(url,data,{'CSRFToken' : getCSRFTokenValue()});
+        var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        $.ajax({
+            url: "{% url 'login' %}",
+            headers: {'X-CSRFToken': csrftoken },
+            data: {'phone':number.value,'password':pass.value},
+            type: "POST",
+            dataType:'html',
+            success: function (data) {
+                    if (data) {
+                        console.log(data);
+                        // Add the http response to element
+                        alert(data);
+                    }
+                }
+        });
     }
     document.getElementById("login_link").classList.add("d-none");
     document.getElementById("account_link").classList.remove("d-none");
